@@ -8,6 +8,7 @@ import android.text.TextUtils
 import com.pemwa.androidroombookkeeper.R
 import com.pemwa.androidroombookkeeper.util.NEW_AUTHOR
 import com.pemwa.androidroombookkeeper.util.NEW_BOOK
+import com.pemwa.androidroombookkeeper.util.NEW_DESCRIPTION
 import kotlinx.android.synthetic.main.activity_new_book.*
 
 class NewBookActivity : AppCompatActivity() {
@@ -25,9 +26,11 @@ class NewBookActivity : AppCompatActivity() {
             }else{
                 val author = etAuthorName.text.toString()
                 val book = etBookName.text.toString()
+                val description = etDescription.text.toString()
 
                 resultIntent.putExtra(NEW_AUTHOR, author)
                 resultIntent.putExtra(NEW_BOOK, book)
+                resultIntent.putExtra(NEW_DESCRIPTION, description)
                 setResult(Activity.RESULT_OK, resultIntent)
             }
             finish()

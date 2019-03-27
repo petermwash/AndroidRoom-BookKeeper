@@ -46,11 +46,12 @@ class BookListAdapter(private val context: Context,
         }
 
         fun setListeners() {
-            itemView.ivRowEdit.setOnClickListener {
+            itemView.setOnClickListener {
                 val intent = Intent(context, EditBookActivity::class.java)
                 intent.putExtra("id", bookList[pos].id)
                 intent.putExtra("author", bookList[pos].author)
                 intent.putExtra("book", bookList[pos].book)
+                intent.putExtra("description", bookList[pos].description)
                 (context as Activity).startActivityForResult(intent, UPDATE_BOOK_ACTIVITY_REQUEST_CODE)
             }
             itemView.ivRowDelete.setOnClickListener {

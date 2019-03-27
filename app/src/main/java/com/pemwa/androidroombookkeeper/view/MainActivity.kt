@@ -57,8 +57,9 @@ class MainActivity : AppCompatActivity(), BookListAdapter.OnDeleteClickListener 
             val id = UUID.randomUUID().toString()
             val authorName = data!!.getStringExtra(NEW_AUTHOR)
             val bookTitle = data.getStringExtra(NEW_BOOK)
+            val description = data.getStringExtra(NEW_DESCRIPTION)
 
-            val book = Book(id, authorName, bookTitle)
+            val book = Book(id, authorName, bookTitle, description)
 
             viewModel.insert(book)
 
@@ -70,10 +71,11 @@ class MainActivity : AppCompatActivity(), BookListAdapter.OnDeleteClickListener 
 
         }else if (requestCode == UPDATE_BOOK_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val id = data!!.getStringExtra(ID)
-            val authorName = data!!.getStringExtra(UPDATED_AUTHOR)
-            val bookTitle = data!!.getStringExtra(UPDATED_BOOK)
+            val authorName = data.getStringExtra(UPDATED_AUTHOR)
+            val bookTitle = data.getStringExtra(UPDATED_BOOK)
+            val description = data.getStringExtra(NEW_DESCRIPTION)
 
-            val book = Book(id, authorName, bookTitle)
+            val book = Book(id, authorName, bookTitle, description)
 
             viewModel.update(book)
 

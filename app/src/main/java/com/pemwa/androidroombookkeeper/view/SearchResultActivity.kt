@@ -15,10 +15,7 @@ import android.widget.Toast
 import com.pemwa.androidroombookkeeper.R
 import com.pemwa.androidroombookkeeper.adapter.BookListAdapter
 import com.pemwa.androidroombookkeeper.data.Book
-import com.pemwa.androidroombookkeeper.util.ID
-import com.pemwa.androidroombookkeeper.util.UPDATED_AUTHOR
-import com.pemwa.androidroombookkeeper.util.UPDATED_BOOK
-import com.pemwa.androidroombookkeeper.util.UPDATE_BOOK_ACTIVITY_REQUEST_CODE
+import com.pemwa.androidroombookkeeper.util.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -68,8 +65,9 @@ class SearchResultActivity: AppCompatActivity(), BookListAdapter.OnDeleteClickLi
                 val bookId = data!!.getStringExtra(ID)
                 val authorName = data.getStringExtra(UPDATED_AUTHOR)
                 val bookName = data.getStringExtra(UPDATED_BOOK)
+                val description = data.getStringExtra(UPDATED_DESCRIPTION)
 
-                val book = Book(bookId, authorName, bookName)
+                val book = Book(bookId, authorName, bookName, description)
                 searchViewModel.update(book)
 
                 Toast.makeText(applicationContext, R.string.updated, Toast.LENGTH_LONG).show()

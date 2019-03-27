@@ -7,7 +7,11 @@ import android.arch.persistence.room.PrimaryKey
 @Entity(tableName = "books")
 class Book (@PrimaryKey
             val id: String,
+
             @ColumnInfo(name = "author")
             val author: String,
+
             @ColumnInfo(name = "title")
-            val book: String)
+            val book: String,
+
+            val description: String)
